@@ -36,7 +36,7 @@
     - You cannot remove capacity to make it smaller.
 - Because of this, arrays can be less flexible than dynamic data structures.
 
-[Java Arrays](/Examples/Java/java-arrays/)
+[Arrays](/Examples/Java/arrays/)
 
 # 3. Big O Notation and Time Complexity
 
