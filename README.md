@@ -16,8 +16,14 @@
   - [3.8. Visual Growth Intuition](#38-visual-growth-intuition)
   - [3.9. Final Takeaway](#39-final-takeaway)
 - [4. Arrays in Memory](#4-arrays-in-memory)
-- [5. Stack](#5-stack)
-  - [5.1. Time Complexity](#51-time-complexity)
+- [5. Abstract Data Types (ADT)](#5-abstract-data-types-adt)
+  - [5.1. Key Characteristics of ADTs](#51-key-characteristics-of-adts)
+  - [5.2. ADT vs Concrete Data Structures](#52-adt-vs-concrete-data-structures)
+  - [5.3. ADTs in Java](#53-adts-in-java)
+  - [5.4. Key Takeaway](#54-key-takeaway)
+- [6. Stack](#6-stack)
+  - [6.1. Time Complexity](#61-time-complexity)
+- [7. Queue](#7-queue)
 
 # 1. Data Structure
 
@@ -100,7 +106,7 @@ Today, **time complexity** is usually more important because memory is relativel
 ## 3.6. What Big O Tells Us
 
 - Big O describes **scalability**:
-  - > How does performance change when input size increases from 10 → 100 → 1,000 → 1,000,000?
+  - > How does performance change when input size increases from 10 -> 100 -> 1,000 -> 1,000,000?
 
 ## 3.7. Common Big O Time Complexities
 
@@ -136,19 +142,62 @@ Ordered from **best** to **worst**:
 - If an array starts at memory address x, and the size of each element in the array is y, we can calculate the memory address of the ith element by using the following expression: x + i \* y.
 - If we know the index of an element, the time to retrieve the element will be the same, no matter where it is in the array.
 
-# 5. Stack
+# 5. Abstract Data Types (ADT)
+
+- An **abstract data type (ADT)** defines **what operations can be performed on a data set**, not **how the data is stored**.
+- Unlike **arrays**, which are concrete data structures that dictate memory layout (contiguous storage and equal-sized elements), **lists** are a conceptual model.
+- They focus on **behavior**, such as how elements can be accessed or manipulated.
+
+## 5.1. Key Characteristics of ADTs
+
+- Define **operations and behavior**.
+- Do **not** specify how data is stored in memory.
+- Focus on **access patterns** (first element, last element, random access, etc.).
+
+## 5.2. ADT vs Concrete Data Structures
+
+- **Concrete data structures** (e.g., arrays, linked lists)
+  - Define _how_ data is stored
+  - Usually implemented as **classes** in Java
+- **Abstract data types**
+  - Define _what_ can be done with the data
+  - Usually represented as **interfaces** in Java
+
+## 5.3. ADTs in Java
+
+- In Java, an abstract data type is commonly implemented as an **interface**, since interfaces define behavior without enforcing implementation details.
+- Any class that **implements an ADT interface** can be treated as that ADT, regardless of how it stores data.
+- **Examples**
+  - A list implemented using an array.
+  - A list implemented using a linked structure.
+  - Any unconventional implementation that follows the interface contract.
+
+## 5.4. Key Takeaway
+
+- **ADT** -> defines behavior and allowed operations.
+- **Concrete data structure** -> defines how data is implemented and stored.
+
+# 6. Stack
 
 - Abstract data type.
 - `LIFO` - Last in, first out.
-- `push` - adds an item as the top item on the stack.
-- `pop` - removes the top item on the stack.
-- `peek` - gets the top item on the stack without popping it.
-- Ideal backing data structure: linked list.
+- `push` - Adds an item as the top item on the stack.
+- `pop` - Removes the top item on the stack.
+- `peek` - Gets the top item on the stack without popping it.
+- Ideal backing data structure: Linked list.
 
-## 5.1. Time Complexity
+## 6.1. Time Complexity
 
 - O(1) for push, pop, and peek, when using a linked list.
 - If you use an array, then push is O(n), because the array may have to be resized.
 - If you know the maximum number of items that will ever be on the stack, an array can be a good choice.
 - If memory is tight, an array might be a good choice.
 - Linked list is ideal.
+
+# 7. Queue
+
+- Abstract data type.
+- `FIFO` - First in, first out.
+- `add` - Also called enqueue - add an item to the end of the queue.
+- `remove` - Also called dequeue - remove the item at the front of the queue.
+- `peek` - Get the item at the front of the queue, but don’t remove it.
