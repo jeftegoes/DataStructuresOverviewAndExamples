@@ -1,42 +1,50 @@
 package org.example;
 
 import java.util.LinkedList;
+import java.util.Stack;
 
 public class Palindrome {
+    private LinkedList<Character> stack;
+
     public boolean isPalindrome(String string) {
-        LinkedList<Character> stack = new LinkedList<>();
+        stack = new LinkedList<>();
 
-        StringBuilder stringNoPunctuation = getSanitizedString(string, stack);
+        StringBuilder sanitizedString = getSanitizedString(string);
 
-        StringBuilder reversedString = getReversedString(stack);
+        buildStack(sanitizedString);
 
-        boolean isPalindrome = reversedString.toString().equals(stringNoPunctuation.toString());
+        StringBuilder reversedString = getReversedString();
 
-        return isPalindrome;
+        return reversedString.toString().equals(sanitizedString.toString());
     }
 
-    private StringBuilder getReversedString(LinkedList<Character> stack) {
-        StringBuilder reversedString = new StringBuilder(stack.size());
+    private StringBuilder getReversedString() {
+        StringBuilder reversedString = new StringBuilder(this.stack.size());
 
-        while (!stack.isEmpty()) {
-            reversedString.append(stack.pop());
+        while (!this.stack.isEmpty()) {
+            reversedString.append(this.stack.pop());
         }
 
         return reversedString;
     }
 
-    private StringBuilder getSanitizedString(String string, LinkedList<Character> stack) {
-        StringBuilder stringNoPunctuation = new StringBuilder(string.length());
+    private StringBuilder getSanitizedString(String string) {
+        StringBuilder sanitizedString = new StringBuilder(string.length());
         String lowerCase = string.toLowerCase();
 
         for (int i = 0; i < lowerCase.length(); i++) {
             char c = lowerCase.charAt(i);
             if (c >= 'a' && c <= 'z') {
-                stringNoPunctuation.append(c);
-                stack.push(c);
+                sanitizedString.append(c);
             }
         }
 
-        return stringNoPunctuation;
+        return sanitizedString;
+    }
+
+    private void buildStack(StringBuilder string) {
+        for (int i = 0; i < string.length(); i++) {
+            this.stack.push(string.charAt(i));
+        }
     }
 }

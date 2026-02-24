@@ -21,9 +21,12 @@
   - [5.2. ADT vs Concrete Data Structures](#52-adt-vs-concrete-data-structures)
   - [5.3. ADTs in Java](#53-adts-in-java)
   - [5.4. Key Takeaway](#54-key-takeaway)
-- [6. Stack](#6-stack)
-  - [6.1. Time Complexity](#61-time-complexity)
-- [7. Queue](#7-queue)
+- [6. List](#6-list)
+  - [6.1. Linked List](#61-linked-list)
+  - [6.2. Double Linked List](#62-double-linked-list)
+- [7. Stack](#7-stack)
+  - [7.1. Time Complexity](#71-time-complexity)
+- [8. Queue](#8-queue)
 
 # 1. Data Structure
 
@@ -177,7 +180,20 @@ Ordered from **best** to **worst**:
 - **ADT** -> defines behavior and allowed operations.
 - **Concrete data structure** -> defines how data is implemented and stored.
 
-# 6. Stack
+# 6. List
+
+## 6.1. Linked List
+
+![Singly Linked List Diagram](/Images/SinglyLinkedListDiagram.png)
+
+- Each item in the list is called a node.
+- The first item in the list is the head of the list.
+
+## 6.2. Double Linked List
+
+![Double Linked List Diagram](/Images/DoubleLinkedListDiagram.png)
+
+# 7. Stack
 
 - Abstract data type.
 - `LIFO` - Last in, first out.
@@ -186,7 +202,7 @@ Ordered from **best** to **worst**:
 - `peek` - Gets the top item on the stack without popping it.
 - Ideal backing data structure: Linked list.
 
-## 6.1. Time Complexity
+## 7.1. Time Complexity
 
 - O(1) for push, pop, and peek, when using a linked list.
 - If you use an array, then push is O(n), because the array may have to be resized.
@@ -194,7 +210,7 @@ Ordered from **best** to **worst**:
 - If memory is tight, an array might be a good choice.
 - Linked list is ideal.
 
-# 7. Queue
+# 8. Queue
 
 - Abstract data type.
 - `FIFO` - First in, first out.
