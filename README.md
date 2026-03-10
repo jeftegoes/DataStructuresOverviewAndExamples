@@ -15,21 +15,28 @@
   - [3.7. Common Big O Time Complexities](#37-common-big-o-time-complexities)
   - [3.8. Visual Growth Intuition](#38-visual-growth-intuition)
   - [3.9. Final Takeaway](#39-final-takeaway)
-- [4. Arrays in Memory](#4-arrays-in-memory)
-- [5. Abstract Data Types (ADT)](#5-abstract-data-types-adt)
-  - [5.1. Key Characteristics of ADTs](#51-key-characteristics-of-adts)
-  - [5.2. ADT vs Concrete Data Structures](#52-adt-vs-concrete-data-structures)
-  - [5.3. ADTs in Java](#53-adts-in-java)
-  - [5.4. Key Takeaway](#54-key-takeaway)
-- [6. List](#6-list)
-  - [6.1. Linked List](#61-linked-list)
-  - [6.2. Double Linked List](#62-double-linked-list)
-- [7. Stack](#7-stack)
-  - [7.1. Time Complexity](#71-time-complexity)
-- [8. Queue](#8-queue)
-- [9. Hash Tables](#9-hash-tables)
-  - [9.1. Hashing](#91-hashing)
-  - [9.2. Load Factor](#92-load-factor)
+- [4. Sorting](#4-sorting)
+- [5. Arrays in Memory](#5-arrays-in-memory)
+- [6. Abstract Data Types (ADT)](#6-abstract-data-types-adt)
+  - [6.1. Key Characteristics of ADTs](#61-key-characteristics-of-adts)
+  - [6.2. ADT vs Concrete Data Structures](#62-adt-vs-concrete-data-structures)
+  - [6.3. ADTs in Java](#63-adts-in-java)
+  - [6.4. Key Takeaway](#64-key-takeaway)
+- [7. List](#7-list)
+  - [7.1. Linked List](#71-linked-list)
+  - [7.2. Double Linked List](#72-double-linked-list)
+- [8. Stack](#8-stack)
+  - [8.1. Time Complexity](#81-time-complexity)
+- [9. Queue](#9-queue)
+- [10. Search Algorithms](#10-search-algorithms)
+  - [10.1. Linear](#101-linear)
+  - [10.2. Binary](#102-binary)
+- [11. Hash Tables](#11-hash-tables)
+  - [11.1. Hashing](#111-hashing)
+  - [11.2. Load Factor](#112-load-factor)
+  - [11.3. Chaining (Encadeamento)](#113-chaining-encadeamento)
+- [12. Heaps](#12-heaps)
+  - [12.1. Heaps](#121-heaps)
 
 # 1. Data Structure
 
@@ -141,26 +148,28 @@ Ordered from **best** to **worst**:
   - Predict worst-case performance
 - his will be essential when analyzing and comparing sorting algorithms.
 
-# 4. Arrays in Memory
+# 4. Sorting
+
+# 5. Arrays in Memory
 
 - Contiguous block in memory.
 - Every element occupies the same amount of space in memory.
 - If an array starts at memory address x, and the size of each element in the array is y, we can calculate the memory address of the ith element by using the following expression: x + i \* y.
 - If we know the index of an element, the time to retrieve the element will be the same, no matter where it is in the array.
 
-# 5. Abstract Data Types (ADT)
+# 6. Abstract Data Types (ADT)
 
 - An **abstract data type (ADT)** defines **what operations can be performed on a data set**, not **how the data is stored**.
 - Unlike **arrays**, which are concrete data structures that dictate memory layout (contiguous storage and equal-sized elements), **lists** are a conceptual model.
 - They focus on **behavior**, such as how elements can be accessed or manipulated.
 
-## 5.1. Key Characteristics of ADTs
+## 6.1. Key Characteristics of ADTs
 
 - Define **operations and behavior**.
 - Do **not** specify how data is stored in memory.
 - Focus on **access patterns** (first element, last element, random access, etc.).
 
-## 5.2. ADT vs Concrete Data Structures
+## 6.2. ADT vs Concrete Data Structures
 
 - **Concrete data structures** (e.g., arrays, linked lists)
   - Define _how_ data is stored
@@ -169,7 +178,7 @@ Ordered from **best** to **worst**:
   - Define _what_ can be done with the data
   - Usually represented as **interfaces** in Java
 
-## 5.3. ADTs in Java
+## 6.3. ADTs in Java
 
 - In Java, an abstract data type is commonly implemented as an **interface**, since interfaces define behavior without enforcing implementation details.
 - Any class that **implements an ADT interface** can be treated as that ADT, regardless of how it stores data.
@@ -178,25 +187,25 @@ Ordered from **best** to **worst**:
   - A list implemented using a linked structure.
   - Any unconventional implementation that follows the interface contract.
 
-## 5.4. Key Takeaway
+## 6.4. Key Takeaway
 
 - **ADT** -> defines behavior and allowed operations.
 - **Concrete data structure** -> defines how data is implemented and stored.
 
-# 6. List
+# 7. List
 
-## 6.1. Linked List
+## 7.1. Linked List
 
 ![Singly Linked List Diagram](/Images/SinglyLinkedListDiagram.png)
 
 - Each item in the list is called a node.
 - The first item in the list is the head of the list.
 
-## 6.2. Double Linked List
+## 7.2. Double Linked List
 
 ![Double Linked List Diagram](/Images/DoubleLinkedListDiagram.png)
 
-# 7. Stack
+# 8. Stack
 
 - Abstract data type.
 - `LIFO` - Last in, first out.
@@ -205,7 +214,7 @@ Ordered from **best** to **worst**:
 - `peek` - Gets the top item on the stack without popping it.
 - Ideal backing data structure: Linked list.
 
-## 7.1. Time Complexity
+## 8.1. Time Complexity
 
 - O(1) for push, pop, and peek, when using a linked list.
 - If you use an array, then push is O(n), because the array may have to be resized.
@@ -213,7 +222,7 @@ Ordered from **best** to **worst**:
 - If memory is tight, an array might be a good choice.
 - Linked list is ideal.
 
-# 8. Queue
+# 9. Queue
 
 - Abstract data type.
 - `FIFO` - First in, first out.
@@ -221,27 +230,76 @@ Ordered from **best** to **worst**:
 - `remove` - Also called dequeue - remove the item at the front of the queue.
 - `peek` - Get the item at the front of the queue, but don't remove it.
 
-# 9. Hash Tables
+# 10. Search Algorithms
+
+## 10.1. Linear
+
+- Linear search scans the elements one by one until it finds the target value or reaches the end of the list.
+- Linear search works with both sorted and unsorted data.
+- O(n).
+
+## 10.2. Binary
+
+- Data must be sorted!
+- Chooses the element in the middle of the array and compares it against the search value.
+  1. If element is equal to the value, we're done.
+  2. If element is greater than the value, search the left half of the array.
+  3. If the element is less than the value, search the right half of the array.
+  4. At some point, there will be only one element in the partition you're checking, but it doesn't have to get to that point.
+- Iterative Binary Search in Java (non-recursive)
+- Can be implemented recursively.
+- O(log n) - keeps dividing the array in half.
+  ![Iterative Binary Search](/Images/IterativeBinarySearch.png)
+
+# 11. Hash Tables
 
 - Abstract data type.
 - Provide access to data using keys.
 - Key doesn't have to be an integer.
-- Consists of key/value pairs – data types don't have to match.
-- Optimized for retrieval (when you know the key).
+- Consists of key/value pairs - data types don't have to match.
+- Optimized for retrieval (when you know the key). O(1)
 - Associative array is one type of hash table.
+- A good hash function should distribute the keys uniformly across the table.
+- Hash tables are inefficient for retrieving data in a sorted (ordered) manner.
 
-## 9.1. Hashing
+## 11.1. Hashing
 
 - Maps keys of any data type to an integer.
 - Hash function maps keys to int.
 - In Java, hash function is Object.hashCode().
-- Collision occurs when more than one value has the same hashed value.
+- **Collision** occurs when more than one value has the same hashed value.
 
-## 9.2. Load Factor
+## 11.2. Load Factor
 
 - Tells us how full a hash table is.
 - Load factor = # of items / capacity = size / capacity.
-- Load factor is used to decide when to resize the array backing the hash table.
-- Don't want load factor too low (lots of empty space).
-- Don't want load factor too high (will increase the likelihood of collisions).
+  - Load factor is used to decide when to resize the array backing the hash table.
+  - Don't want load factor too low (lots of empty space).
+  - Don't want load factor too high (will increase the likelihood of collisions).
 - Can play a role in determining the time complexity for retrieval.
+
+## 11.3. Chaining (Encadeamento)
+
+|     Strategy      |                    Idea                     |
+| :---------------: | :-----------------------------------------: |
+|     Chaining      | Store elements in a list in the bucket O(n) |
+|  Linear Probing   |        Check the next free position         |
+| Quadratic Probing |        Quadratic jumps in the table         |
+|  Double Hashing   |         Use a second hash function          |
+|     Rehashing     |             Increase table size             |
+
+# 12. Heaps
+
+- A complete binary trees.
+- Must satisfy the heap property.
+- Max heap: Every parent is greater than or equal to its children.
+- Min heap: Every parent is less than or equal to its children.
+
+## 12.1. Heaps
+
+- A binary heap must be a complete tree.
+- Children are added at each level from left to right.
+- Usually implemented as arrays.
+- The maximum or minimum value will always be at the root of the tree – the advantage of using a heap.
+- **Heapify:** Process of converting a binary tree into a heap – this often has to be done after an insertion or deletion.
+- No required ordering between siblings.
