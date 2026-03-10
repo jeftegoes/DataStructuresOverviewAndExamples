@@ -5,7 +5,7 @@
 - [1. Data Structure](#1-data-structure)
 - [2. Implementing Arrays](#2-implementing-arrays)
 - [3. Big O Notation and Time Complexity](#3-big-o-notation-and-time-complexity)
-  - [3.1. Why Execution Time Isn’t Reliable](#31-why-execution-time-isnt-reliable)
+  - [3.1. Why Execution Time Isn't Reliable](#31-why-execution-time-isnt-reliable)
   - [3.2. Types of Complexity](#32-types-of-complexity)
   - [3.3. Why We Focus on the Worst Case](#33-why-we-focus-on-the-worst-case)
   - [3.4. Example Algorithm: Adding Sugar to Tea](#34-example-algorithm-adding-sugar-to-tea)
@@ -27,6 +27,9 @@
 - [7. Stack](#7-stack)
   - [7.1. Time Complexity](#71-time-complexity)
 - [8. Queue](#8-queue)
+- [9. Hash Tables](#9-hash-tables)
+  - [9.1. Hashing](#91-hashing)
+  - [9.2. Load Factor](#92-load-factor)
 
 # 1. Data Structure
 
@@ -51,7 +54,7 @@
 
 - Before comparing sorting algorithms, we need a fair way to measure their performance.
 
-## 3.1. Why Execution Time Isn’t Reliable
+## 3.1. Why Execution Time Isn't Reliable
 
 - Measuring an algorithm by timing how long it runs is **not accurate** because results depend on hardware:
   - A modern computer runs the same code much faster than an old machine.
@@ -101,7 +104,7 @@ Today, **time complexity** is usually more important because memory is relativel
 
 ## 3.5. Introducing Big O Notation
 
-- Big O notation describes how an algorithm’s runtime **grows** as input size grows.
+- Big O notation describes how an algorithm's runtime **grows** as input size grows.
   - Written as **O(expression)**
   - We ignore constants and lower-order terms.
 - This is called **linear time complexity**.
@@ -216,4 +219,29 @@ Ordered from **best** to **worst**:
 - `FIFO` - First in, first out.
 - `add` - Also called enqueue - add an item to the end of the queue.
 - `remove` - Also called dequeue - remove the item at the front of the queue.
-- `peek` - Get the item at the front of the queue, but don’t remove it.
+- `peek` - Get the item at the front of the queue, but don't remove it.
+
+# 9. Hash Tables
+
+- Abstract data type.
+- Provide access to data using keys.
+- Key doesn't have to be an integer.
+- Consists of key/value pairs – data types don't have to match.
+- Optimized for retrieval (when you know the key).
+- Associative array is one type of hash table.
+
+## 9.1. Hashing
+
+- Maps keys of any data type to an integer.
+- Hash function maps keys to int.
+- In Java, hash function is Object.hashCode().
+- Collision occurs when more than one value has the same hashed value.
+
+## 9.2. Load Factor
+
+- Tells us how full a hash table is.
+- Load factor = # of items / capacity = size / capacity.
+- Load factor is used to decide when to resize the array backing the hash table.
+- Don't want load factor too low (lots of empty space).
+- Don't want load factor too high (will increase the likelihood of collisions).
+- Can play a role in determining the time complexity for retrieval.
