@@ -37,6 +37,9 @@
   - [11.3. Chaining (Encadeamento)](#113-chaining-encadeamento)
 - [12. Heaps](#12-heaps)
   - [12.1. Heaps](#121-heaps)
+  - [12.2. Not a heap](#122-not-a-heap)
+  - [12.3. A Heap](#123-a-heap)
+  - [12.4. Heaps as Arrays](#124-heaps-as-arrays)
 
 # 1. Data Structure
 
@@ -291,15 +294,35 @@ Ordered from **best** to **worst**:
 # 12. Heaps
 
 - A complete binary trees.
-- Must satisfy the heap property.
-- Max heap: Every parent is greater than or equal to its children.
-- Min heap: Every parent is less than or equal to its children.
+- Must satisfy the heap property (order).
+  - **Max heap:** Every parent is greater than or equal to its children.
+  - **Min heap:** Every parent is less than or equal to its children.
 
 ## 12.1. Heaps
 
 - A binary heap must be a complete tree.
+  - Every level of the tree is fully filled, except possibly the last level.
 - Children are added at each level from left to right.
 - Usually implemented as arrays.
-- The maximum or minimum value will always be at the root of the tree – the advantage of using a heap.
-- **Heapify:** Process of converting a binary tree into a heap – this often has to be done after an insertion or deletion.
+- The maximum or minimum value will always be at the root of the tree - the advantage of using a heap.
+- **Heapify:** Process of converting a binary tree into a heap - this often has to be done after an insertion or deletion.
 - No required ordering between siblings.
+
+## 12.2. Not a heap
+
+![Heap - Not a heap](/Images/HeapNotAHeap.png)
+
+## 12.3. A Heap
+
+![Heap](/Images/Heap.png)
+
+## 12.4. Heaps as Arrays
+
+- We can store binary heaps as arrays.
+- We put the root at array[0].
+- We then traverse each level from left to right, and so the left child of the root would go into array[1], its right child would to into array[2], etc.
+  ![Heap](/Images/HeapsAsArrays.png)
+- For the node at array[i]:
+  - left child = 2i + 1
+  - right child = 2i + 2
+  - parent = floor((i – 1) / 2)
