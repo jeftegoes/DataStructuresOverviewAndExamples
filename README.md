@@ -15,7 +15,8 @@
   - [3.7. Common Big O Time Complexities](#37-common-big-o-time-complexities)
   - [3.8. Visual Growth Intuition](#38-visual-growth-intuition)
   - [3.9. Final Takeaway](#39-final-takeaway)
-- [4. Sorting](#4-sorting)
+- [4. Sort Algorithms](#4-sort-algorithms)
+  - [4.1. Bubble Sort](#41-bubble-sort)
 - [5. Arrays in Memory](#5-arrays-in-memory)
 - [6. Abstract Data Types (ADT)](#6-abstract-data-types-adt)
   - [6.1. Key Characteristics of ADTs](#61-key-characteristics-of-adts)
@@ -151,7 +152,14 @@ Ordered from **best** to **worst**:
   - Predict worst-case performance
 - his will be essential when analyzing and comparing sorting algorithms.
 
-# 4. Sorting
+# 4. Sort Algorithms
+
+## 4.1. Bubble Sort
+
+- In-place algorithm.
+- O(n2) time complexity - quadratic.
+- It will take 100 steps to sort 10 items, 10,000 steps to sort 100 items, 1,000,000 steps to sort 1000 items.
+- Algorithm degrades quickly.
 
 # 5. Arrays in Memory
 

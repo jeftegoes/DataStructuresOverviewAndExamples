@@ -1,0 +1,51 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+  <diagram name="Page-1" id="gJch-a0MosFX27YN9rpa">
+    <mxGraphModel dx="1192" dy="1237" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-1" value="" style="childLayout=tableLayout;recursiveResize=0;shadow=0;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="215" y="527" width="420" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-2" value="" style="shape=tableRow;horizontal=0;startSize=0;swimlaneHead=0;swimlaneBody=0;top=0;left=0;bottom=0;right=0;dropTarget=0;collapsible=0;recursiveResize=0;expand=0;fontStyle=0;fillColor=none;strokeColor=inherit;" vertex="1" parent="GtdgVOFAbl7-ZhVcAFPi-1">
+          <mxGeometry width="420" height="47" as="geometry" />
+        </mxCell>
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-20" value="20" style="connectable=0;recursiveResize=0;strokeColor=inherit;fillColor=none;align=center;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="GtdgVOFAbl7-ZhVcAFPi-2">
+          <mxGeometry width="60" height="47" as="geometry">
+            <mxRectangle width="60" height="47" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-19" value="35" style="connectable=0;recursiveResize=0;strokeColor=inherit;fillColor=none;align=center;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="GtdgVOFAbl7-ZhVcAFPi-2">
+          <mxGeometry x="60" width="60" height="47" as="geometry">
+            <mxRectangle width="60" height="47" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-18" value="-15" style="connectable=0;recursiveResize=0;strokeColor=inherit;fillColor=none;align=center;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="GtdgVOFAbl7-ZhVcAFPi-2">
+          <mxGeometry x="120" width="60" height="47" as="geometry">
+            <mxRectangle width="60" height="47" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-17" value="7" style="connectable=0;recursiveResize=0;strokeColor=inherit;fillColor=none;align=center;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="GtdgVOFAbl7-ZhVcAFPi-2">
+          <mxGeometry x="180" width="60" height="47" as="geometry">
+            <mxRectangle width="60" height="47" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-14" value="55" style="connectable=0;recursiveResize=0;strokeColor=inherit;fillColor=none;align=center;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="GtdgVOFAbl7-ZhVcAFPi-2">
+          <mxGeometry x="240" width="60" height="47" as="geometry">
+            <mxRectangle width="60" height="47" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-3" value="1" style="connectable=0;recursiveResize=0;strokeColor=inherit;fillColor=none;align=center;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="GtdgVOFAbl7-ZhVcAFPi-2">
+          <mxGeometry x="300" width="60" height="47" as="geometry">
+            <mxRectangle width="60" height="47" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GtdgVOFAbl7-ZhVcAFPi-21" value="-22" style="connectable=0;recursiveResize=0;strokeColor=inherit;fillColor=none;align=center;whiteSpace=wrap;html=1;fontSize=20;" vertex="1" parent="GtdgVOFAbl7-ZhVcAFPi-2">
+          <mxGeometry x="360" width="60" height="47" as="geometry">
+            <mxRectangle width="60" height="47" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
