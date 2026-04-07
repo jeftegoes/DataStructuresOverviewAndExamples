@@ -36,17 +36,27 @@
   - [11.1. Hashing](#111-hashing)
   - [11.2. Load Factor](#112-load-factor)
   - [11.3. Chaining (Encadeamento)](#113-chaining-encadeamento)
-- [12. Heaps](#12-heaps)
-  - [12.1. Heaps](#121-heaps)
-  - [12.2. Not a heap](#122-not-a-heap)
-  - [12.3. A Heap](#123-a-heap)
-  - [12.4. Heaps as Arrays](#124-heaps-as-arrays)
+- [12. Trees](#12-trees)
+  - [12.1. Characteristics](#121-characteristics)
+    - [12.1.1. Structure Rules](#1211-structure-rules)
+    - [12.1.2. Important Terms](#1212-important-terms)
+    - [12.1.3. Relationships](#1213-relationships)
+    - [12.1.4. Real-World Examples](#1214-real-world-examples)
+    - [12.1.5. Key Insight](#1215-key-insight)
+  - [12.2. Binary Tree](#122-binary-tree)
+  - [12.3. Binary Search Tree (BST)](#123-binary-search-tree-bst)
+  - [12.4. Traversal](#124-traversal)
+- [13. Heaps](#13-heaps)
+  - [13.1. Heaps](#131-heaps)
+  - [13.2. Not a heap](#132-not-a-heap)
+  - [13.3. A Heap](#133-a-heap)
+  - [13.4. Heaps as Arrays](#134-heaps-as-arrays)
 
 # 1. Data Structure
 
 - Organizes and stores data.
 - Each has strengths and weaknesses.
-- _The fact is, there aren't just two sides to any issue, there's almost always a range of responses, and “it depends” is almost always the right answer in any big question._ Linus Torvalds
+- _The fact is, there aren't just two sides to any issue, there's almost always a range of responses, and "it depends" is almost always the right answer in any big question._ Linus Torvalds
 
 # 2. Implementing Arrays
 
@@ -146,11 +156,11 @@ Ordered from **best** to **worst**:
 ## 3.9. Final Takeaway
 
 - Big O notation gives us a way to:
-  - Compare algorithms objectively
-  - Ignore hardware differences
-  - Understand how performance scales
-  - Predict worst-case performance
-- his will be essential when analyzing and comparing sorting algorithms.
+  - Compare algorithms objectively.
+  - Ignore hardware differences.
+  - Understand how performance scales.
+  - Predict worst-case performance.
+- His will be essential when analyzing and comparing sorting algorithms.
 
 # 4. Sort Algorithms
 
@@ -183,11 +193,11 @@ Ordered from **best** to **worst**:
 ## 6.2. ADT vs Concrete Data Structures
 
 - **Concrete data structures** (e.g., arrays, linked lists)
-  - Define _how_ data is stored
-  - Usually implemented as **classes** in Java
+  - Define _how_ data is stored.
+  - Usually implemented as **classes** in Java.
 - **Abstract data types**
-  - Define _what_ can be done with the data
-  - Usually represented as **interfaces** in Java
+  - Define _what_ can be done with the data.
+  - Usually represented as **interfaces** in Java.
 
 ## 6.3. ADTs in Java
 
@@ -299,14 +309,101 @@ Ordered from **best** to **worst**:
 |  Double Hashing   |         Use a second hash function          |
 |     Rehashing     |             Increase table size             |
 
-# 12. Heaps
+# 12. Trees
+
+- A tree is a hierarchical data structure made up of nodes connected by edges.
+  ![Trees](/Images/Trees.png)
+
+## 12.1. Characteristics
+
+- **Node:** Each element in the tree.
+- **Root:** The top node (has no parent). There is only one root.
+- **Parent & Child**
+  - Each node has only one parent (except the root).
+  - A node can have multiple children.
+- **Leaf:** A node with no children.
+- **Edge:** The connection between nodes.
+  ![Trees Details](/Images/TreesDetai ls.png)
+
+### 12.1.1. Structure Rules
+
+- No node can have more than one parent.
+- No cycles are allowed (you can't loop back to a node).
+- Trees represent hierarchical relationships.
+
+### 12.1.2. Important Terms
+
+- **Subtree:** A node and all its descendants.
+- **Path:** Sequence of nodes from one node to another.
+- **Depth:** Number of edges from a node to the root.
+- **Height:** Number of edges in the longest path from a node to a leaf.
+- **Level:** Nodes grouped by the same depth.
+
+### 12.1.3. Relationships
+
+- **Ancestors:** Nodes above a given node (toward the root).
+- **Descendants:** Nodes below a given node.
+
+### 12.1.4. Real-World Examples
+
+- File systems (folders and files)
+- Java class hierarchy (e.g., everything extends Object)
+
+### 12.1.5. Key Insight
+
+- A tree is ideal when data has a "parent -> child" relationship.
+- Each node has one parent but can have many children.
+
+## 12.2. Binary Tree
+
+- Every node has 0, 1, or 2 children.
+- Children are referred to as left child and right child.
+  - In practice, we use binary search trees.
+
+## 12.3. Binary Search Tree (BST)
+
+- Can perform insertions, deletions, and retrievals in `O(log n)` time.
+- The left child always has a smaller value than its parent.
+- The right child always has a larger value than its parent.
+- This means everything to:
+  - The left of the root is less than the value of the root.
+  - Everything to the right of the root is greater than the value of the root.
+- Because of that, we can do a binary search.
+
+## 12.4. Traversal
+
+- There are 4 ways to traverse a tree:
+  1. Level Order (rarely used)
+     - Visit nodes level by level, from top to bottom
+     - Left → right in each level
+       ![Tree - Traversal - Level Order](/Images/TreeLevelOrder.png)
+  2. Pre-order (Root → Left → Right)
+     - Visit node first, then:
+       - Left subtree
+       - Right subtree
+         ![Tree - Traversal - Pre-order](/Images/TreePreOrder.png)
+  3. In-order (Left → Root → Right)
+     - **Visit**
+       - Left subtree
+       - Node
+       - Right subtree
+     - In a Binary Search Tree, this returns values sorted.
+       ![Tree - Traversal - In-order](/Images/TreeInOrder.png)
+  4. Post-order (Left → Right → Root)
+     - **Visit**
+       - Left subtree
+       - Right subtree
+       - Node last
+         ![Tree - Traversal - Post-order](/Images/TreePostOrder.png)
+
+# 13. Heaps
 
 - A complete binary trees.
 - Must satisfy the heap property (order).
   - **Max heap:** Every parent is greater than or equal to its children.
   - **Min heap:** Every parent is less than or equal to its children.
 
-## 12.1. Heaps
+## 13.1. Heaps
 
 - A binary heap must be a complete tree.
   - Every level of the tree is fully filled, except possibly the last level.
@@ -316,15 +413,15 @@ Ordered from **best** to **worst**:
 - **Heapify:** Process of converting a binary tree into a heap - this often has to be done after an insertion or deletion.
 - No required ordering between siblings.
 
-## 12.2. Not a heap
+## 13.2. Not a heap
 
 ![Heap - Not a heap](/Images/HeapNotAHeap.png)
 
-## 12.3. A Heap
+## 13.3. A Heap
 
 ![Heap](/Images/Heap.png)
 
-## 12.4. Heaps as Arrays
+## 13.4. Heaps as Arrays
 
 - We can store binary heaps as arrays.
 - We put the root at array[0].
@@ -333,4 +430,4 @@ Ordered from **best** to **worst**:
 - For the node at array[i]:
   - left child = 2i + 1
   - right child = 2i + 2
-  - parent = floor((i – 1) / 2)
+  - parent = floor((i - 1) / 2)
