@@ -323,7 +323,7 @@ Ordered from **best** to **worst**:
   - A node can have multiple children.
 - **Leaf:** A node with no children.
 - **Edge:** The connection between nodes.
-  ![Trees Details](/Images/TreesDetai ls.png)
+  ![Trees Details](/Images/TreesDetails.png)
 
 ### 12.1.1. Structure Rules
 
