@@ -37,20 +37,32 @@
   - [11.2. Load Factor](#112-load-factor)
   - [11.3. Chaining (Encadeamento)](#113-chaining-encadeamento)
 - [12. Trees](#12-trees)
-  - [12.1. Characteristics](#121-characteristics)
-    - [12.1.1. Structure Rules](#1211-structure-rules)
-    - [12.1.2. Important Terms](#1212-important-terms)
-    - [12.1.3. Relationships](#1213-relationships)
-    - [12.1.4. Real-World Examples](#1214-real-world-examples)
-    - [12.1.5. Key Insight](#1215-key-insight)
-  - [12.2. Binary Tree](#122-binary-tree)
-  - [12.3. Binary Search Tree (BST)](#123-binary-search-tree-bst)
-  - [12.4. Traversal](#124-traversal)
+  - [12.1. Big O](#121-big-o)
+  - [12.2. Characteristics](#122-characteristics)
+    - [12.2.1. Structure Rules](#1221-structure-rules)
+    - [12.2.2. Important Terms](#1222-important-terms)
+    - [12.2.3. Relationships](#1223-relationships)
+    - [12.2.4. Real-World Examples](#1224-real-world-examples)
+    - [12.2.5. Key Insight](#1225-key-insight)
+  - [12.3. Binary Tree](#123-binary-tree)
+  - [12.4. Binary Search Tree (BST)](#124-binary-search-tree-bst)
+  - [12.5. Traversal](#125-traversal)
 - [13. Heaps](#13-heaps)
   - [13.1. Heaps](#131-heaps)
   - [13.2. Not a heap](#132-not-a-heap)
   - [13.3. A Heap](#133-a-heap)
   - [13.4. Heaps as Arrays](#134-heaps-as-arrays)
+- [14. AVL Tree](#14-avl-tree)
+  - [14.1. Binary Search Trees](#141-binary-search-trees)
+  - [14.2. Imbalance Tree](#142-imbalance-tree)
+  - [14.3. Details](#143-details)
+  - [14.4. AVL Trees Rotations](#144-avl-trees-rotations)
+  - [14.5. Big O AVL](#145-big-o-avl)
+  - [14.6. How do I know if it is unbalanced?](#146-how-do-i-know-if-it-is-unbalanced)
+  - [14.7. AVL trees vs BTS](#147-avl-trees-vs-bts)
+  - [14.8. left-heavy](#148-left-heavy)
+  - [14.9. right-heavy](#149-right-heavy)
+  - [14.10. Rotations](#1410-rotations)
 
 # 1. Data Structure
 
@@ -314,7 +326,16 @@ Ordered from **best** to **worst**:
 - A tree is a hierarchical data structure made up of nodes connected by edges.
   ![Trees](/Images/Trees.png)
 
-## 12.1. Characteristics
+## 12.1. Big O
+
+|                    | AVERAGE-CASE | WORST-CASE |
+| :----------------: | :----------: | :--------: |
+|  space complexity  |     O(N)     |    O(N)    |
+|     insertion      |   O(logN)    |    O(N)    |
+| deletion (removal) |   O(logN)    |    O(N)    |
+|       search       |   O(logN)    |    O(N)    |
+
+## 12.2. Characteristics
 
 - **Node:** Each element in the tree.
 - **Root:** The top node (has no parent). There is only one root.
@@ -325,13 +346,13 @@ Ordered from **best** to **worst**:
 - **Edge:** The connection between nodes.
   ![Trees Details](/Images/TreesDetails.png)
 
-### 12.1.1. Structure Rules
+### 12.2.1. Structure Rules
 
 - No node can have more than one parent.
 - No cycles are allowed (you can't loop back to a node).
 - Trees represent hierarchical relationships.
 
-### 12.1.2. Important Terms
+### 12.2.2. Important Terms
 
 - **Subtree:** A node and all its descendants.
 - **Path:** Sequence of nodes from one node to another.
@@ -339,28 +360,28 @@ Ordered from **best** to **worst**:
 - **Height:** Number of edges in the longest path from a node to a leaf.
 - **Level:** Nodes grouped by the same depth.
 
-### 12.1.3. Relationships
+### 12.2.3. Relationships
 
 - **Ancestors:** Nodes above a given node (toward the root).
 - **Descendants:** Nodes below a given node.
 
-### 12.1.4. Real-World Examples
+### 12.2.4. Real-World Examples
 
 - File systems (folders and files)
 - Java class hierarchy (e.g., everything extends Object)
 
-### 12.1.5. Key Insight
+### 12.2.5. Key Insight
 
 - A tree is ideal when data has a "parent -> child" relationship.
 - Each node has one parent but can have many children.
 
-## 12.2. Binary Tree
+## 12.3. Binary Tree
 
 - Every node has 0, 1, or 2 children.
 - Children are referred to as left child and right child.
   - In practice, we use binary search trees.
 
-## 12.3. Binary Search Tree (BST)
+## 12.4. Binary Search Tree (BST)
 
 - Can perform insertions, deletions, and retrievals in `O(log n)` time.
 - The left child always has a smaller value than its parent.
@@ -370,7 +391,7 @@ Ordered from **best** to **worst**:
   - Everything to the right of the root is greater than the value of the root.
 - Because of that, we can do a binary search.
 
-## 12.4. Traversal
+## 12.5. Traversal
 
 - There are 4 ways to traverse a tree:
   1. Level Order (rarely used)
@@ -431,3 +452,86 @@ Ordered from **best** to **worst**:
   - left child = 2i + 1
   - right child = 2i + 2
   - parent = floor((i - 1) / 2)
+
+# 14. AVL Tree
+
+- It is a balanced **data structure** invented back in 1962 by **Adelson-Velsky and Landis (AVL)**.
+- This data structure has a guaranteed **O(logN)** running time.
+- The running time of binary search trees depends on the h height of the binary search tree.
+- In an AVL tree the heights of the two child subtrees of any node differ by at most one.
+- **AVL trees are faster** than **red-black trees** because they are more rigidly balanced but needs more work.
+- Operating systems relies heavily on these data structures.
+- AVL trees are rigidly balanced this is why O(logN) running time is guaranteed (it is as fast as a binary search tree can be).
+
+## 14.1. Binary Search Trees
+
+- [12, 4, 8, 20, 27, 16, 1]
+  ![Binary Search Trees](/Images/AVLBinarySearchTree.png)
+
+## 14.2. Imbalance Tree
+
+![Binary Search Trees](/Images/AVLBinarySearchTreeInbalance.png)
+
+## 14.3. Details
+
+- All the operations are the same as we have seen **with binary search trees** (insertion and removal).
+- After every insertion and removal operations we have to check whether the tree has become **imbalanced** or not.
+- If the tree is imbalanced then we have to make **rotations**.
+
+## 14.4. AVL Trees Rotations
+
+- We have to track the h height parameters for all the nodes in the **binary search tree**.
+- We can calculate the balance factors for the nodes.
+- Have to make rotations if necessary to rebalance search trees.
+  1. **LEFT ROTATIONS**
+     - Negative balance factors means right heavy situation so we have to make a left rotation to rebalance the tree.
+  2. **RIGHT ROTATION**
+     - Positive balance factors means left heavy situation so we have to make a right rotation to rebalance the tree.
+
+## 14.5. Big O AVL
+
+|                    | AVERAGE-CASE | WORST-CASE |
+| :----------------: | :----------: | :--------: |
+|  space complexity  |     O(N)     |    O(N)    |
+|     insertion      |   O(logN)    |  O(logN)   |
+| deletion (removal) |   O(logN)    |  O(logN)   |
+|       search       |   O(logN)    |  O(logN)   |
+
+## 14.6. How do I know if it is unbalanced?
+
+- `height = max( left child’s height , right child’s height ) + 1`
+  - The height of a node is the longest path from the actual node to a leaf node.
+  - The height of a NULL node is -1 to be consistent (this is why leaf nodes have height 0).
+- The height of a tree is the number of edges on the longest downward path between the root and a leaf node. The number of layers the tree contains.
+  ![AVLTrick](/Images/AVLTrick.png)
+- IMBALANCED TREE
+  ![IMBALANCED](/Images/AVLBinarySearchTreeImbalanceWithCalculations.png)
+  - In an imbalanced tree the running time of operations can be reduced to even O(N) linear Running time complexity.
+- BALANCED TREE
+  ![AVLTrick](/Images/AVLTrick.png)
+  - in a balanced tree the running time of operations are O(logN) always
+
+## 14.7. AVL trees vs BTS
+
+- AVL trees are exactly the same as binary search trees.
+- The only difference is that we track the h heigth parameters of the nodes in the tree.
+- All subtrees height parameter can not differ more than 1 (otherwise the tree is imbalanced).
+  - `| hleft – hright | > 1`
+- We have to update the binary search tree and **make rotations** if it gets **imbalanced**.
+- This is why we have the h height parameters - we just have to check the differences in height parameters after every operation.
+
+## 14.8. left-heavy
+
+- this is a left-heavy case when the left subtree contains more nodes
+- in this case the height of the root node is 2 so it is a positive value
+- usually the difference in the height pramateres is called balance factor
+
+## 14.9. right-heavy
+
+- this is a right-heavy case when the right subtree contains more nodes
+- in this case the height of the root node is -2 so it is a negative value
+- usually the difference in the height pramateres is called balance factor
+
+## 14.10. Rotations
+
+TODO
