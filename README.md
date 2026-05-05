@@ -63,6 +63,21 @@
   - [14.8. left-heavy](#148-left-heavy)
   - [14.9. right-heavy](#149-right-heavy)
   - [14.10. Rotations](#1410-rotations)
+- [15. Graphs](#15-graphs)
+  - [15.1. Undirected Graphs](#151-undirected-graphs)
+  - [15.2. Directed Graphs](#152-directed-graphs)
+  - [15.3. Graph Types](#153-graph-types)
+  - [15.4. Representation in Programming Language](#154-representation-in-programming-language)
+    - [15.4.1. Adjacency List Representation](#1541-adjacency-list-representation)
+    - [15.4.2. Adjacency Matrix Representation](#1542-adjacency-matrix-representation)
+  - [15.5. Applications](#155-applications)
+    - [15.5.1. Shortest path algorithms](#1551-shortest-path-algorithms)
+    - [15.5.2. Crawling a network (WWW)](#1552-crawling-a-network-www)
+    - [15.5.3. Job scheduling algorithms](#1553-job-scheduling-algorithms)
+    - [15.5.4. Software engineering](#1554-software-engineering)
+    - [15.5.5. Complex networks](#1555-complex-networks)
+    - [15.5.6. Quadratic optimization problems](#1556-quadratic-optimization-problems)
+    - [15.5.7. Strongly connected components](#1557-strongly-connected-components)
 
 # 1. Data Structure
 
@@ -499,7 +514,7 @@ Ordered from **best** to **worst**:
 
 ## 14.6. How do I know if it is unbalanced?
 
-- `height = max( left child’s height , right child’s height ) + 1`
+- `height = max( left child's height , right child's height ) + 1`
   - The height of a node is the longest path from the actual node to a leaf node.
   - The height of a NULL node is -1 to be consistent (this is why leaf nodes have height 0).
 - The height of a tree is the number of edges on the longest downward path between the root and a leaf node. The number of layers the tree contains.
@@ -535,3 +550,111 @@ Ordered from **best** to **worst**:
 ## 14.10. Rotations
 
 TODO
+
+# 15. Graphs
+
+- Graph theory is the study of graphs, which are mathematical structures used to model pairwise relations between objects.
+- Graphs are made up of **nodes (vertices)** that are connected by **edges (links)**.
+  ![Graph](/Images/Graph.png)
+- There are two main types of graphs: **Directed graphs** and **Undirected graphs**.
+
+## 15.1. Undirected Graphs
+
+- An undirected graph G(V,E) is a set of vertices and edges where the edges are bidirectional.
+- It means that edge (u,v) is identical to the edge (v,u).
+  ![Undirected Graphs](/Images/UndirectedGraphs.png)
+- **Note:** The edges may have weights as well!
+
+## 15.2. Directed Graphs
+
+- A directed graph G(V,E) is a set of vertices and edges where the edges have direction. It means that edge (u,v) is identical to the edge (v,u).
+  ![Undirected Graphs](/Images/DirectedGraphs.png)
+- **Note:** The edges may have weights as well!
+
+## 15.3. Graph Types
+
+- **Trees**
+  - Tree is an undirected graph where any two vertices (nodes) are connected by exactly one path.
+    ![Graph - Tree](/Images/GraphTree.png)
+- **Forest**
+  - Forest is an undirected graph, all of whose connected components are trees (disjoint union of trees).
+    ![Graph - Forest](/Images/GraphForest.png)
+- **Directed Acyclic Graph (DAG)**
+  - It is a finite directed graph with no directed cycles (crucial in many algorithms).
+    ![Graph - Directed Acyclic Graph (DAG)](/Images/GraphDirectedAcyclicGraph.png)
+- **Complete Graph**
+  - In complete graphs, every single pair of vertices (nodes) are connected.
+    ![Graph - Complete Graph](/Images/CompleteGraph.png)
+
+## 15.4. Representation in Programming Language
+
+### 15.4.1. Adjacency List Representation
+
+- We assign a **data structure** (array) to every single vertex (node) in the graph that stores the edges accordingly.
+  ```
+    A : [(4,C),(2,B)]
+    B : [(3,D)]
+    C : []
+    D : []
+  ```
+- **Good:** Iterating over all the edges is efficient.
+- **Bad:** Edge weight lookup is slow O(N) because we have to find it in linear time.
+
+### 15.4.2. Adjacency Matrix Representation
+
+- Let's assume we have a G(V,E) graph with **V** vertices (nodes) and **E** edges (links).
+- We can construct an M matrix with size **VxV** where **M[i][j]** represents the edge weight of going from node i to node j.
+- **Directed Graphs**
+  ![Graph - Adjacency Matrix](/Images/GraphAdjacencyMatrix.png)
+- **Undirected Graphs**
+  | | A | B | C | D |
+  |---|---|---|---|---|
+  | A | 0 | 0 | 1 | 0 |
+  | B | 0 | 0 | 1 | 1 |
+  | C | 1 | 1 | 0 | 0 |
+  | D | 0 | 1 | 0 | 0 |
+- **Note:** Undirected graphs have symmetric adjacency matrix representations!
+- Space efficient with dense graphs but it requires O(N²) memory.
+- **Good:** Edge weight lookup is O(1).
+- **Bad:** Iterating over all edges takes O(N²).
+
+## 15.5. Applications
+
+### 15.5.1. Shortest path algorithms
+
+- Shortest path algorithms are used on a daily basis (Google Maps, Waze etc.)
+  - Dijkstra's shortest path algorithm can find the shortest path between two locations quite fast.
+  - Arbitrage opportunities on the FOREX can be detected with the help of Bellman-Ford algorithm (detecting negative cycles).
+  - Shortest path algorithms are used in photo editing softwares as well (Photoshop, Gimp).
+  - **Computer networks:** Open Shortest Path First (OSPF) is a routing protocol for computer networks that helps to navigate packages on the web.
+
+### 15.5.2. Crawling a network (WWW)
+
+- Graph traversal algorithms (especially breath-first search) can traverse huge networks such as the WWW this is how Google's Spider crawls the web and keeps indexing the web pages (page rank calculation).
+
+### 15.5.3. Job scheduling algorithms
+
+- Let's assume a given job consists of several tasks. These tasks may depend on each other. How to schedule these tasks so that the overall time is minimized?
+  - Most of these problems can be solved with shortest path algorithms such as Dijkstra's algorithm.
+
+### 15.5.4. Software engineering
+
+- Let's consider software project management tools such as Maven or Gradle.
+- The problem is that packages or modules (dependencies) may depend on each other: The order of compilation is important this problem can be reduced to the problem of cycles in a graph and directed acyclic graphs (DAGs).
+
+### 15.5.5. Complex networks
+
+- Complex networks are getting more and more popular. These are graphs with non-trivial topological features (usually these graphs can model real systems).
+
+### 15.5.6. Quadratic optimization problems
+
+- Most of the optimization problems can be transformed into a graph theory problem.
+  - Maximum flow problem (max flow min cut problem).
+  - Circulation problem and airline scheduling.
+  - Vehicle routing problem etc.
+
+### 15.5.7. Strongly connected components
+
+- Strongly connected components may refer to clusters in networks such as a social network (Facebook, Instagram).
+  - We can build recommendation systems (YouTube related videos).
+  - We can analyze ecosystems (food chains).
