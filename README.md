@@ -78,6 +78,7 @@
     - [15.5.5. Complex networks](#1555-complex-networks)
     - [15.5.6. Quadratic optimization problems](#1556-quadratic-optimization-problems)
     - [15.5.7. Strongly connected components](#1557-strongly-connected-components)
+  - [15.6. Dijkstra's Algorithm](#156-dijkstras-algorithm)
 
 # 1. Data Structure
 
@@ -658,3 +659,22 @@ TODO
 - Strongly connected components may refer to clusters in networks such as a social network (Facebook, Instagram).
   - We can build recommendation systems (YouTube related videos).
   - We can analyze ecosystems (food chains).
+
+## 15.6. Dijkstra's Algorithm
+
+- "In graph theory the shortest path problem is the problem of finding a path between two vertices in a graph such that the sum of the weights of its constituent edges is minimized".
+- Finding a path between two vertices in a G(V,E) graph such that the sum of the weights of its edges is minimized.
+- Algorithms
+  1. Dijkstra's algorithm
+  2. Bellman-Ford algorithm
+  3. `A*` search
+  4. Floyd-Warshall algorithm
+- It was constructed by computer scientist Edsger Dijkstra in 1956.
+- Dijkstra’s method can handle positive edge weights - Bellman-Ford algorithm can have negative weights as well.
+- It can find the shortest path in a G(V,E) graph from v to u but it is able to construct a shortest path tree as well.
+- The shortest path tree defines the shortest paths from a source to all the other nodes.
+- It is asymptotically the fastest known single-source shortest-path algorithm for arbitrary directed graphs with unbounded non-negative weights.
+- Dijkstra’s algorithm has O(VlogV + E) running time complexity.
+- It is a greedy approach – it tries to find the global optimum with the help of local optimum.
+- On every iteration we want to find the minimum distance to the next vertex possible.
+- The appropriate data structure is a priority queue (heap).
